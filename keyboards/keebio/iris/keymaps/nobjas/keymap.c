@@ -16,6 +16,7 @@ enum custom_keycodes {
 
 #define KC_RS_Z LT(_RAISE, KC_Z)
 #define KC_UI_SP LGUI_T(KC_SPC)
+#define KC_UI_ENT LGUI_T(KC_ENT)
 #define KC_LO_LG1 LT(_LOWER, KC_LANG1)
 #define KC_RA_LG2 LT(_RAISE, KC_LANG2)
 
@@ -31,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_GRV,           KC_DEL,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    KC_LGUI,KC_LO_LG1,KC_UI_SP,                   KC_SPC, KC_RA_LG2, KC_RALT
+                                    KC_LGUI,KC_LO_LG1,KC_UI_SP,                 KC_UI_ENT,KC_RA_LG2, KC_RALT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -78,42 +79,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case QWERTY:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_QWERTY);
-      }
-      return false;
-      break;
-    case LOWER:
-      if (record->event.pressed) {
-        layer_on(_LOWER);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_LOWER);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-      break;
-    case RAISE:
-      if (record->event.pressed) {
-        layer_on(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-      break;
-    case ADJUST:
-      if (record->event.pressed) {
-        layer_on(_ADJUST);
-      } else {
-        layer_off(_ADJUST);
-      }
-      return false;
-      break;
-  }
-  return true;
-}
+// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//   switch (keycode) {
+//     case QWERTY:
+//       if (record->event.pressed) {
+//         set_single_persistent_default_layer(_QWERTY);
+//       }
+//       return false;
+//       break;
+//     case LOWER:
+//       if (record->event.pressed) {
+//         layer_on(_LOWER);
+//         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+//       } else {
+//         layer_off(_LOWER);
+//         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+//       }
+//       return false;
+//       break;
+//     case RAISE:
+//       if (record->event.pressed) {
+//         layer_on(_RAISE);
+//         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+//       } else {
+//         layer_off(_RAISE);
+//         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+//       }
+//       return false;
+//       break;
+//     case ADJUST:
+//       if (record->event.pressed) {
+//         layer_on(_ADJUST);
+//       } else {
+//         layer_off(_ADJUST);
+//       }
+//       return false;
+//       break;
+//   }
+//   return true;
+// }
