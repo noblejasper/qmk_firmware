@@ -4,9 +4,9 @@
     #define STARTUP_SONG SONG(PLANCK_SOUND)
     // #define STARTUP_SONG SONG(NO_SOUND)
 
-    #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \
-                                  SONG(COLEMAK_SOUND), \
-                                  SONG(DVORAK_SOUND) \
+    #define DEFAULT_LAYER_SONGS { SONG(NO_SOUND), \
+                                  SONG(NO_SOUND), \
+                                  SONG(NO_SOUND) \
                                 }
 #endif
 
