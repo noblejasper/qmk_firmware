@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, KC_DOWN, KC_LCBR,                      KC_RCBR, KC_UNDS, KC_PLUS, KC_PIPE, KC_TILD, KC_RSFT,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         KC_ALTEN, KC_LOEN,KC_UI_SP,  KC_UI_ENT, KC_RAKN,KC_ALTKN \
+                                         KC_ALTEN,   LOWER,KC_UI_SP,  KC_UI_ENT,   RAISE,KC_ALTKN \
                                       //`--------------------------'  `--------------------------'
     ),
 
@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, XXXXXXX,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         KC_ALTEN, KC_LOEN,KC_UI_SP,  KC_UI_ENT, KC_RAKN,KC_ALTKN \
+                                         KC_ALTEN,   LOWER,KC_UI_SP,  KC_UI_ENT,   RAISE,KC_ALTKN \
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -138,6 +138,10 @@ void matrix_render_user(struct CharacterMatrix *matrix) {
     // If you want to change the display of OLED, you need to change here
     matrix_write_ln(matrix, read_mode_icon(keymap_config.swap_lalt_lgui));
     matrix_write_ln(matrix, read_layer_state());
+
+    char rgblight[40];
+    snprintf(rgblight,sizeof(rgblight), "LED_MODE=%d", rgblight_config.mode);
+    matrix_write(matrix, rgblight);
     // matrix_write_ln(matrix, read_keylog());
     //matrix_write_ln(matrix, read_keylogs());
     // matrix_write_ln(matrix, read_host_led_state());
