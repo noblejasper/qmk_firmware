@@ -35,6 +35,8 @@ enum macro_keycodes {
 #define KC_UI_ENT GUI_T(KC_ENT)
 #define KC_ALTEN LALT_T(KC_LANG2)
 #define KC_ALTKN RALT_T(KC_LANG1)
+#define KC_LOEN LT(_LOWER, KC_LANG2)
+#define KC_RAKN LT(_RAISE, KC_LANG1)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_split_3x6_3( \
@@ -45,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         KC_ALTEN, LOWER,  KC_UI_SP,   KC_UI_ENT,  RAISE,KC_ALTKN \
+                                         KC_ALTEN, KC_LOEN,KC_UI_SP,   KC_UI_ENT,KC_RAKN,KC_ALTKN \
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -58,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LCBR,                      KC_RCBR, KC_UNDS, KC_PLUS, KC_PIPE, KC_TILD, KC_RSFT,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         KC_ALTEN, LOWER,  KC_UI_SP,   KC_UI_ENT,  RAISE,KC_ALTKN \
+                                         KC_ALTEN,   LOWER,KC_UI_SP,   KC_UI_ENT,  RAISE,KC_ALTKN \
                                       //`--------------------------'  `--------------------------'
     ),
 
@@ -70,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, KC_RSFT,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         KC_ALTEN, LOWER,  KC_UI_SP,   KC_UI_ENT,  RAISE,KC_ALTKN \
+                                         KC_ALTEN,   LOWER,KC_UI_SP,   KC_UI_ENT,  RAISE,KC_ALTKN \
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -82,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         KC_ALTEN, LOWER,  KC_UI_SP,   KC_UI_ENT,  RAISE,KC_ALTKN \
+                                         KC_ALTEN,   LOWER,KC_UI_SP,   KC_UI_ENT,  RAISE,KC_ALTKN \
                                       //`--------------------------'  `--------------------------'
   )
 };
